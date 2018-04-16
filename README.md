@@ -5,66 +5,24 @@ PersistantRecyclerAdapter is a simple, lite weight android library that persists
 
 <h2>How To Use PersistantRecyclerAdapter</h2>
 <b>1.</b> Add it in your root build.gradle at the end of repositories:
-<pre>
+
 	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
-	}</pre>
+	}
   
 <b> 2.</b> Add Dependecy
-  <pre>
+
   	dependencies {
 	        compile 'com.github.devmike01:PersistantRecyclerAdapter:-SNAPSHOT'
 	}
-  </pre>
+
 
 <h2>PersistantRecyclerAdapter Example</h2>
 Create a class in your project and extends <pre>PersistentRecyclerAdapter<Percelable, RecyclerView.ViewHolder><pre>
 Like this
-
-public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
-
-    private List<SampleItems> itemsList; //Initialize an empty parcelable list
-
-    //Create constructor with a parcelable list
-    public SampleAdapter(List<SampleItems> pList) {
-        super(serializedList);
-        itemsList = pList; //Get the data parcelable list here
-    }
-
-    //Override persistant recyclerview here
-    @Override
-    public void onBindViewHolder(@NonNull SampleViewHolder holder, int position, SampleItems data) {
-        holder.tv.setText(data.getStr()); //Show your data here
-    }
-
-    //Implement normal onCreateViewHolder
-    @NonNull
-    @Override
-    public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items_sample, parent, false);
-        return new SampleViewHolder(view);
-    }
-
-    @Override
-    public int getItemCount() {
-        return itemsList.size();
-    }
-
-
-    //Create your viewholder
-    public class SampleViewHolder extends RecyclerView.ViewHolder{
-
-        TextView tv;
-        public SampleViewHolder(View itemView) {
-            super(itemView);
-            tv = itemView.findViewById(R.id.grid_text);
-        }
-    }
-}
-
 
 Extends parcelable in your model class. For example:
 
