@@ -1,6 +1,6 @@
-#PersistantRecyclerAdapter
+# PersistantRecyclerAdapter
 
-##How To Use PersistantRecyclerAdapter
+## How To Use PersistantRecyclerAdapter
 
 ###### Step 1. Add the JitPack repository to your build file 
 
