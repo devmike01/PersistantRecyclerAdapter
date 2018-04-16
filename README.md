@@ -25,7 +25,7 @@ dependencies {
 }
 ``` 
    
-###### Example usage
+## Example usage
 - Create an empty Java and extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods
 - Create a subclass/class that extends `RecyclerView.ViewHolder`
 - Initilized a List variable e.g private `List<SampleItems> itemsList`;
