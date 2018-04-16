@@ -11,7 +11,7 @@ PersistantRecyclerAdapter is a simple, lite weight android library that persists
 		}
 	}</pre>
   
-<b> 2.<b> Add Dependecy
+<b> 2.</b> Add Dependecy
   <pre>
   	dependencies {
 	        compile 'com.github.devmike01:PersistantRecyclerAdapter:-SNAPSHOT'
@@ -38,7 +38,7 @@ public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, Sample
         holder.tv.setText(data.getStr()); //Show your data here
     }
 
-  //Implement normal onCreateViewHolder
+    //Implement normal onCreateViewHolder
     @NonNull
     @Override
     public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,6 +62,7 @@ public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, Sample
         }
     }
 }
+
 
 Extends parcelable in your model class. For example:
 
@@ -117,7 +118,7 @@ Now everything is set. Ititialize your RecyclerView as you'd normally do in your
         gridView.setHasFixedSize(true);
         gridView.setAdapter(a);
 </pre>
-<BR/>
+<br/>
 <h3>For LinearLayoutManager</h3>
 <pre>
 GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
