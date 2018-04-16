@@ -40,10 +40,8 @@ public class FragmentSample extends Fragment {
         RecyclerView gridView = view.findViewById(R.id.recycler_grid);
         final SampleAdapter a = new SampleAdapter(data);
 
-        //Gridlayout manager
+        //Initialize your recyclerview data
         gridLayout = a.getGridLayoutManager(getActivity(), 3);
-
-        //lm = a.getLinearLayoutManager(getActivity());
         gridView.setLayoutManager(gridLayout);
         gridView.setHasFixedSize(true);
         gridView.setAdapter(a);
