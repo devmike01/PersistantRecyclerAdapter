@@ -6,19 +6,22 @@
 
 Add it in your root build.gradle at the end of repositories:
 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+```groovy
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
+```
 
 ###### Step 2. Add the dependency
 
-	dependencies {
-	        compile 'com.github.devmike01:PersistantRecyclerAdapter:-SNAPSHOT'
-	}
-   
+```groovy
+dependencies {
+        compile 'com.github.devmike01:PersistantRecyclerAdapter:-SNAPSHOT'
+}
+``` 
    
 ###### Example usage
 - Create an empty Java and extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods
@@ -28,28 +31,37 @@ At the end your Adapter class look like the code snippet below:
  
  ```java
  public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
-        private List<SampleItems> itemsList; //Initialize a list with your data model
-        public SampleAdapter(List<SampleItems\> serializedList) {
+        
+	private List<SampleItems> itemsList; //Initialize a list with your data model
+	
+        public SampleAdapter(List<SampleItems> serializedList) {
             super(serializedList);
             itemsList = serializedList;
-        }@Override
+        }
+	
+	@Override
         public void onBindViewHolder(@NonNull SampleViewHolder holder, int position, SampleItems data) {
             holder.tv.setText(data.getStr());
-        }@NonNull
+        }
+	
+	@NonNull
         @Override
         public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items_sample, parent, false);
             return new SampleViewHolder(view);
         }
-    @Override
+	
+    	@Override
         public int getItemCount() {
             return itemsList.size();
-        }//Recycler ViewHolder
-        public class SampleViewHolder extends RecyclerView.ViewHolder{
-    TextView tv;
-            public SampleViewHolder(View itemView) {
-                super(itemView);
-                tv = itemView.findViewById(R.id.grid_text);
+        }
+	
+	//Recycler ViewHolder
+	public class SampleViewHolder extends RecyclerView.ViewHolder{
+    		TextView tv;
+            	public SampleViewHolder(View itemView) {
+                	super(itemView);
+                	tv = itemView.findViewById(R.id.grid_text);
             }
         }
     }
@@ -65,6 +77,7 @@ public class SampleItems implements Parcelable{
     }
 
   public static final Creator<SampleItems> CREATOR = new Creator<SampleItems>() {
+  
         @Override
         public SampleItems createFromParcel(Parcel in) {
             SampleItems items = new SampleItems();
@@ -72,25 +85,28 @@ public class SampleItems implements Parcelable{
             return items;
         }
 
-  @Override
+  	@Override
         public SampleItems[] newArray(int size) {
             return new SampleItems[size];
-        }
-    };
-public void setStr(String s){
-        str =s;
-    }
-public String getStr(){
-        return str;
-    }
-@Override
-    public int describeContents() {
-        return 0;
-    }
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(str);
-    }
+        	}
+    	};
+	
+	public void setStr(String s){
+        	str =s;
+    	}
+	public String getStr(){
+        	return str;
+    	}
+	
+	@Override
+    	public int describeContents() {
+        	return 0;
+    	}
+	
+    	@Override
+    	public void writeToParcel(Parcel dest, int flags) {
+        	dest.writeString(str);
+    	}
 }
 ```
 
