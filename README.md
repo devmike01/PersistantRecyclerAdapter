@@ -1,5 +1,7 @@
 # PersistantRecyclerAdapter
 
+PersistantRecyclerAdapter is a simple, lite weight android library that persists data across fragment or activity recretion
+
 ## How To Use PersistantRecyclerAdapter
 
 ###### Step 1. Add the JitPack repository to your build file 
@@ -110,7 +112,7 @@ public class SampleItems implements Parcelable{
 }
 ```
 
-- We can now intilize the adapter in our Fragment or Activity class and pass the network data we want to display to it. But before we do that,they're two types of `LayoutManager` available in PersistantRecyclerAdapter and they're listed below:
+- We can now intilize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter only supports two **LayoutManager**, and they're listed below:
 
 * LinearLayoutManager
 ```java
@@ -126,11 +128,26 @@ GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
-`StaggeredLayoutManager` would be added in the future. 
+**StaggeredLayoutManager** would be added in the future. 
+
+## Contributions
 
 If you would like to contribute to PersistantRecyclerAdapter for Android, clone the repository and just make a pull request.
 
 git clone https://github.com/devmike01/PersistantRecyclerAdapter.git
 
 
+## License
 
+Copyright 2018 Gbenga Oladipupo
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and limitations under the License.
