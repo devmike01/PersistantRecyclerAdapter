@@ -118,7 +118,6 @@ Now everything is set. Ititialize your RecyclerView as you'd normally do in your
         gridView.setHasFixedSize(true);
         gridView.setAdapter(a);
 </pre>
-<br/>
 <h3>For LinearLayoutManager</h3>
 <pre>
 GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
