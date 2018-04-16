@@ -21,7 +21,7 @@ PersistantRecyclerAdapter is a simple, lite weight android library that persists
 <h2>PersistantRecyclerAdapter Example</h2>
 Create a class in your project and extends <pre>PersistentRecyclerAdapter<Percelable, RecyclerView.ViewHolder><pre>
 Like this
-<pre>
+
 public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
 
     private List<SampleItems> itemsList; //Initialize an empty parcelable list
@@ -62,7 +62,6 @@ public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, Sample
         }
     }
 }
-</pre>
 
 Extends parcelable in your model class. For example:
 
