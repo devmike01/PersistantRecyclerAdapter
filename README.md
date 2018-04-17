@@ -2,6 +2,8 @@
 
 PersistantRecyclerAdapter is a simple, lite weight android library that persists data across fragment or activity recretion
 
+[![](https://jitpack.io/v/devmike01/PersistantRecyclerAdapter.svg)](https://jitpack.io/#devmike01/PersistantRecyclerAdapter)
+
 ## How To Use PersistantRecyclerAdapter
 
 ###### Step 1. Add the JitPack repository to your build file 
@@ -21,7 +23,7 @@ allprojects {
 
 ```groovy
 dependencies {
-        compile 'com.github.devmike01:PersistantRecyclerAdapter:-SNAPSHOT'
+        implementation 'com.github.devmike01:PersistantRecyclerAdapter:0.0.1'
 }
 ``` 
    
@@ -36,9 +38,9 @@ At the end your Adapter class look like the code snippet below:
         
 	private List<SampleItems> itemsList; //Initialize a list with your data model
 	
-        public SampleAdapter(List<SampleItems> serializedList) {
-            super(serializedList);
-            itemsList = serializedList;
+        public SampleAdapter(List<SampleItems> parcelableList) {
+            super(parcelableList);
+            itemsList = parcelableList;
         }
 	
 	@Override
