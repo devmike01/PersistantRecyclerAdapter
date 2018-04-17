@@ -28,9 +28,9 @@ dependencies {
 ``` 
    
 ## Example usage
-- Create an empty Java class that extends `PersistentRecyclerAdapter<Parcelable, RecyclerView.ViewHolder>`. Implements all the neccessary methods including the contructor.
-- Create a class that extends `RecyclerView.ViewHolder`
-- Initialize a List global variable (e.g private `List<SampleItems> itemsList;`) inside the RecyclerView adapter class. 
+- Create an empty Java class and name it `PersistentRecyclerAdapter`.
+- Create a nested class inside the PersistentRecyclerAdapter class. Name it `SampleViewHolder` and extends `RecyclerView.ViewHolder`.
+- Initialize a List global variable (e.g private `List<SampleItems> itemsList;`) in the RecyclerView adapter class and assign the incomming data to it. 
 - Now create a model class and implements Parcelable, like this:
 
 ```java
@@ -72,7 +72,7 @@ public class SampleItems implements Parcelable{
 }
 ```
 
-- Pass the model class where you implements the Parcelable as the first parameter to the adapter.
+- Pass the model class `SampleItems` as the first parameter to the adapter and the `SampleViewHolder` as the second parameter.
 At the end your Adapter class should look like the code snippet below:
  
  ```java
