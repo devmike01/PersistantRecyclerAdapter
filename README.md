@@ -30,7 +30,7 @@ dependencies {
 ## Example usage
 - Create an empty Java class that extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods including the contructor
 - Create another class that extends `RecyclerView.ViewHolder`
-- Initilized a List global variable e.g private `List<SampleItems> itemsList;`. At the end your Adapter class should look like the code snippet below:
+- Initialize a List global variable e.g private `List<SampleItems> itemsList;`. At the end your Adapter class should look like the code snippet below:
  
  ```java
  public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
@@ -113,7 +113,7 @@ public class SampleItems implements Parcelable{
 }
 ```
 
-- We can now intilize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager**, and they're listed below:
+- We can now intialize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager**, and they're listed below:
 
 * LinearLayoutManager
 ```java
