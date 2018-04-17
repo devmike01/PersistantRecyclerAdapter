@@ -114,7 +114,7 @@ public class SampleItems implements Parcelable{
 }
 ```
 
-- We can now intilize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter only supports two **LayoutManager**, and they're listed below:
+- We can now intilize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager**, and they're listed below:
 
 * LinearLayoutManager
 ```java
@@ -130,7 +130,7 @@ GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
-**StaggeredLayoutManager** would be added in the future. 
+**StaggeredLayoutManager** will be added in future updates. 
 
 ## Contributions
 
