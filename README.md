@@ -30,48 +30,7 @@ dependencies {
 ## Example usage
 - Create an empty Java class that extends `PersistentRecyclerAdapter<Parcelable, RecyclerView.ViewHolder>`. Implements all the neccessary methods including the contructor.
 - Create a class that extends `RecyclerView.ViewHolder`
-- Initialize a List global variable e.g private `List<SampleItems> itemsList;`. At the end your Adapter class should look like the code snippet below:
- 
- ```java
- public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
-        
-	private List<SampleItems> itemsList; //Initialize a list with your data model
-	
-        public SampleAdapter(List<SampleItems> parcelableList) {
-            super(parcelableList);
-            itemsList = parcelableList;
-        }
-	
-	@Override
-        public void onBindViewHolder(@NonNull SampleViewHolder holder, int position, SampleItems data) {
-            holder.tv.setText(data.getStr());
-        }
-	
-	@NonNull
-        @Override
-        public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items_sample, parent, false);
-            return new SampleViewHolder(view);
-        }
-	
-    	@Override
-        public int getItemCount() {
-            return itemsList.size();
-        }
-	
-	//Recycler ViewHolder
-	public class SampleViewHolder extends RecyclerView.ViewHolder{
-    		TextView tv;
-            	public SampleViewHolder(View itemView) {
-                	super(itemView);
-                	tv = itemView.findViewById(R.id.grid_text);
-            }
-        }
-    }
-
-
- ```
- 
+- Initialize a List global variable (e.g private `List<SampleItems> itemsList;`) inside the RecyclerView adapter class. 
 - Now create a model class and implements Parcelable, like this:
 
 ```java
@@ -113,7 +72,49 @@ public class SampleItems implements Parcelable{
 }
 ```
 
-- We can now intialize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager**, and they're listed below:
+- Pass the model class where you implements the Parcelable as the first parameter to the adapter.
+At the end your Adapter class should look like the code snippet below:
+ 
+ ```java
+ public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
+        
+	private List<SampleItems> itemsList; //Initialize a list with your data model
+	
+        public SampleAdapter(List<SampleItems> parcelableList) {
+            super(parcelableList);
+            itemsList = parcelableList;
+        }
+	
+	@Override
+        public void onBindViewHolder(@NonNull SampleViewHolder holder, int position, SampleItems data) {
+            holder.tv.setText(data.getStr());
+        }
+	
+	@NonNull
+        @Override
+        public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items_sample, parent, false);
+            return new SampleViewHolder(view);
+        }
+	
+    	@Override
+        public int getItemCount() {
+            return itemsList.size();
+        }
+	
+	//Recycler ViewHolder
+	public class SampleViewHolder extends RecyclerView.ViewHolder{
+    		TextView tv;
+            	public SampleViewHolder(View itemView) {
+                	super(itemView);
+                	tv = itemView.findViewById(R.id.grid_text);
+            }
+        }
+    }
+
+
+ ```
+- We can now intialize the adapter in our Fragment/Activity class and pass the data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager** and they're listed below:
 
 * LinearLayoutManager
 ```java
@@ -129,7 +130,7 @@ GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
-**StaggeredLayoutManager** will be added in future updates. 
+**StaggeredGridLayoutManager** will be added in future updates. 
 
 ## Contributions
 
