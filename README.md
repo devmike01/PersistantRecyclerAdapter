@@ -28,8 +28,8 @@ dependencies {
 ``` 
    
 ## Example usage
-- Create an empty Java class that extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods including the contructor
-- Create another class that extends `RecyclerView.ViewHolder`
+- Create an empty Java class that extends `PersistentRecyclerAdapter<Parcelable, RecyclerView.ViewHolder>`. Implements all the neccessary methods including the contructor.
+- Create a class that extends `RecyclerView.ViewHolder`
 - Initialize a List global variable e.g private `List<SampleItems> itemsList;`. At the end your Adapter class should look like the code snippet below:
  
  ```java
