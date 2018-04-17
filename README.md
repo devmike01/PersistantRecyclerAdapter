@@ -28,10 +28,9 @@ dependencies {
 ``` 
    
 ## Example usage
-- Create an empty Java and extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods
-- Create a subclass/class that extends `RecyclerView.ViewHolder`
-- Initilized a List variable e.g private `List<SampleItems> itemsList`;
-At the end your Adapter class look like the code snippet below:
+- Create an empty Java class that extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods including the contructor
+- Create another class that extends `RecyclerView.ViewHolder`
+- Initilized a List global variable e.g private `List<SampleItems> itemsList;`. At the end your Adapter class should look like the code snippet below:
  
  ```java
  public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
