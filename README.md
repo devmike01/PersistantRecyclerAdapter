@@ -2,7 +2,7 @@
 
 PersistantRecyclerAdapter is a simple, lite weight android library that persists data across fragment and activity recreation
 
-[![](https://jitpack.io/v/devmike01/PersistantRecyclerAdapter.svg)](https://jitpack.io/#devmike01/PersistantRecyclerAdapter)
+[![](https://jitpack.io/v/devmike01/PersistantRecyclerAdapter.svg)](https://jitpack.io/#devmike01/PersistantRecyclerAdapter) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-PersistentRecyclerAdapter-green.svg?style=flat )]( https://android-arsenal.com/details/1/6918 )
 
 ## How To Use PersistantRecyclerAdapter
 
