@@ -34,4 +34,8 @@ android:
       - $HOME/.android/build-cache
 
   before_install:
+<<<<<<< HEAD
    - chmod +x gradlew
+=======
+   - chmod +x gradlew
+>>>>>>> 6abc95ed58390a93186db7c3c059f9dda0cbfcee
