@@ -116,7 +116,7 @@ At the end your Adapter class should look like the code snippet below:
 
 
  ```
-- We can now intialize the adapter in our Fragment/Activity class and pass the data we want to display to it. Please note that PersistantRecyclerAdapter currently supports all RecyclerView LayoutManager.
+- We can now intialize the adapter in our Fragment/Activity class and pass the data we want to display to it. Version `0.0.2` of PersistantRecyclerAdapter now supports all RecyclerView LayoutManager.
 
 * LinearLayoutManager
 ```java
