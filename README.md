@@ -23,7 +23,7 @@ allprojects {
 
 ```groovy
 dependencies {
-        implementation 'com.github.devmike01:PersistantRecyclerAdapter:0.0.1'
+        implementation 'com.github.devmike01:PersistantRecyclerAdapter:0.0.2'
 }
 ``` 
    
@@ -35,7 +35,9 @@ dependencies {
 
 ```java
 public class SampleItems implements Parcelable{
-    private String str;public SampleItems() {
+    private String str;
+    
+    public SampleItems() {
     }
 
   public static final Creator<SampleItems> CREATOR = new Creator<SampleItems>() {
