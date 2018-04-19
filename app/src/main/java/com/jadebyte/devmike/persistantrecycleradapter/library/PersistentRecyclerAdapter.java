@@ -1,4 +1,4 @@
-package com.jadebyte.devmike.persistantrecycleradapter.views;
+package com.jadebyte.devmike.persistantrecycleradapter.library;
 
 import android.content.Context;
 import android.os.Parcel;
@@ -29,8 +29,8 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
     }
 
 
-    protected PersistentRecyclerAdapter(List<T> serializedList) {
-        this.list = serializedList;
+    protected PersistentRecyclerAdapter(List<T> parcelableList) {
+        this.list = parcelableList;
     }
 
 
@@ -77,6 +77,9 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
         return new GridLayoutManager(context, spanCount);
     }
 
+    public StaggeredGridLayoutManager getStaggeredGridLayout(int spanCount, int orientation){
+        return new StaggeredGridLayoutManager(spanCount, orientation);
+    }
 
     public class LinearLayoutManager extends android.support.v7.widget.LinearLayoutManager {
 
@@ -132,4 +135,33 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
         }
 
     }
+
+
+    public class StaggeredGridLayoutManager extends android.support.v7.widget.StaggeredGridLayoutManager {
+
+
+        public StaggeredGridLayoutManager(int spanCount, int orientation) {
+            super(spanCount, orientation);
+        }
+
+        @Override
+        public Parcelable onSaveInstanceState() {
+            return PersistentRecyclerAdapter.this;
+        }
+
+
+        @Override
+        public void onRestoreInstanceState(Parcelable parcelable) {
+            if (parcelable != null) {
+                for (Parcelable items : ((PersistentRecyclerAdapter) parcelable).getItemData()) {
+                    Collection<T> col = new ArrayList<>();
+                    T repo1 = (T) items;
+                    col.add(repo1);
+                    list.addAll(col);
+                }
+            }
+        }
+
+    }
+
 }

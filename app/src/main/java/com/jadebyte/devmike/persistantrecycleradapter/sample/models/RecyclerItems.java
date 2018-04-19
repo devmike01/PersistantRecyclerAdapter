@@ -1,4 +1,4 @@
-package com.jadebyte.devmike.persistantrecycleradapter.models;
+package com.jadebyte.devmike.persistantrecycleradapter.sample.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.jadebyte.devmike.persistantrecycleradapter.models;
+package com.jadebyte.devmike.persistantrecycleradapter.sample.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

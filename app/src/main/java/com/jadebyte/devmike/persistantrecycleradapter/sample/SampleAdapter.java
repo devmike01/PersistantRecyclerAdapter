@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jadebyte.devmike.persistantrecycleradapter.R;
-import com.jadebyte.devmike.persistantrecycleradapter.models.SampleItems;
-import com.jadebyte.devmike.persistantrecycleradapter.views.PersistentRecyclerAdapter;
+import com.jadebyte.devmike.persistantrecycleradapter.sample.models.SampleItems;
+import com.jadebyte.devmike.persistantrecycleradapter.library.PersistentRecyclerAdapter;
 
 import java.util.List;
 

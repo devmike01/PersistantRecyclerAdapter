@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jadebyte.devmike.persistantrecycleradapter.R;
-import com.jadebyte.devmike.persistantrecycleradapter.models.SampleItems;
+import com.jadebyte.devmike.persistantrecycleradapter.sample.models.SampleItems;
 
 import java.util.ArrayList;
 import java.util.List;

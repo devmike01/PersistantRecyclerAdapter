@@ -4,7 +4,7 @@
     package="com.jadebyte.devmike.persistantrecycleradapter">
 
     <application
-        android:theme="@style/AlertDialog.AppCompat">
+        android:theme="@style/Theme.Design">
         <activity android:name="com.jadebyte.devmike.persistantrecycleradapter.sample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
