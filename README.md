@@ -116,7 +116,7 @@ At the end your Adapter class should look like the code snippet below:
 
 
  ```
-- We can now intialize the adapter in our Fragment/Activity class and pass the data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager** and they're listed below:
+- We can now intialize the adapter in our Fragment/Activity class and pass the data we want to display to it. Please note that PersistantRecyclerAdapter currently supports all RecyclerView LayoutManager.
 
 * LinearLayoutManager
 ```java
@@ -132,8 +132,14 @@ GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
-**StaggeredGridLayoutManager** will be added in future updates. 
-
+* StaggeredGridLayoutManager
+```java
+StaggeredGridLayoutManager mStaggeredGridLayoutManager = a.getGridLayoutManager(getActivity(), 3);
+ gridView.setLayoutManager(mStaggeredGridLayoutManager);
+ gridView.setHasFixedSize(true);
+ gridView.setAdapter(a);
+ ```
+ 
 ## Contributions
 
 If you would like to contribute to PersistantRecyclerAdapter for Android, clone the repository and just make a pull request.
