@@ -24,7 +24,7 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
         this.data = data;
     }
 
-    public Parcelable[] getItemData() {
+    private Parcelable[] getItemData() {
         return data;
     }
 
