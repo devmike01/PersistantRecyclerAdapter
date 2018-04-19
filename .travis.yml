@@ -32,14 +32,6 @@ android:
       - $HOME/.gradle/caches/
       - $HOME/.gradle/wrapper/
       - $HOME/.android/build-cache
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   before_install:
    - chmod +x gradlew
-=======
-  #Deploy
->>>>>>> 854f7f75c0417dcc394a42422a2b63a1899d41ba
-=======
-  #Deploy
->>>>>>> 854f7f75c0417dcc394a42422a2b63a1899d41ba
