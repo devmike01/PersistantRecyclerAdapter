@@ -1,6 +1,8 @@
 # PersistantRecyclerAdapter
 
-PersistantRecyclerAdapter is a simple, lite weight android library that persists data across fragment or activity recretion
+PersistantRecyclerAdapter is a simple, lite weight android library that persists data across fragment and activity recreation
+
+[![](https://jitpack.io/v/devmike01/PersistantRecyclerAdapter.svg)](https://jitpack.io/#devmike01/PersistantRecyclerAdapter) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-PersistentRecyclerAdapter-green.svg?style=flat )]( https://android-arsenal.com/details/1/6918 )
 
 ## How To Use PersistantRecyclerAdapter
 
@@ -21,56 +23,14 @@ allprojects {
 
 ```groovy
 dependencies {
-        compile 'com.github.devmike01:PersistantRecyclerAdapter:-SNAPSHOT'
+        implementation 'com.github.devmike01:PersistantRecyclerAdapter:0.0.1'
 }
 ``` 
    
 ## Example usage
-- Create an empty Java and extends `PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder>`. Implements all the neccessary methods
-- Create a subclass/class that extends `RecyclerView.ViewHolder`
-- Initilized a List variable e.g private `List<SampleItems> itemsList`;
-At the end your Adapter class look like the code snippet below:
- 
- ```java
- public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
-        
-	private List<SampleItems> itemsList; //Initialize a list with your data model
-	
-        public SampleAdapter(List<SampleItems> serializedList) {
-            super(serializedList);
-            itemsList = serializedList;
-        }
-	
-	@Override
-        public void onBindViewHolder(@NonNull SampleViewHolder holder, int position, SampleItems data) {
-            holder.tv.setText(data.getStr());
-        }
-	
-	@NonNull
-        @Override
-        public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items_sample, parent, false);
-            return new SampleViewHolder(view);
-        }
-	
-    	@Override
-        public int getItemCount() {
-            return itemsList.size();
-        }
-	
-	//Recycler ViewHolder
-	public class SampleViewHolder extends RecyclerView.ViewHolder{
-    		TextView tv;
-            	public SampleViewHolder(View itemView) {
-                	super(itemView);
-                	tv = itemView.findViewById(R.id.grid_text);
-            }
-        }
-    }
-
-
- ```
- 
+- Create an empty Java class and name it `PersistentRecyclerAdapter`.
+- Create a nested class inside the PersistentRecyclerAdapter class. Name it `SampleViewHolder` and extends `RecyclerView.ViewHolder`.
+- Initialize a List global variable (e.g private `List<SampleItems> itemsList;`) in the RecyclerView adapter class and assign the incomming data to it. 
 - Now create a model class and implements Parcelable, like this:
 
 ```java
@@ -112,7 +72,49 @@ public class SampleItems implements Parcelable{
 }
 ```
 
-- We can now intilize the adapter in our Fragment or Activity class and pass the network data we want to display to it. Please note that PersistantRecyclerAdapter only supports two **LayoutManager**, and they're listed below:
+- Pass the model class `SampleItems` as the first parameter to the adapter and the `SampleViewHolder` as the second parameter.
+At the end your Adapter class should look like the code snippet below:
+ 
+ ```java
+ public class SampleAdapter extends PersistentRecyclerAdapter<SampleItems, SampleAdapter.SampleViewHolder> {
+        
+	private List<SampleItems> itemsList; //Initialize a list with your data model
+	
+        public SampleAdapter(List<SampleItems> parcelableList) {
+            super(parcelableList);
+            itemsList = parcelableList;
+        }
+	
+	@Override
+        public void onBindViewHolder(@NonNull SampleViewHolder holder, int position, SampleItems data) {
+            holder.tv.setText(data.getStr());
+        }
+	
+	@NonNull
+        @Override
+        public SampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_items_sample, parent, false);
+            return new SampleViewHolder(view);
+        }
+	
+    	@Override
+        public int getItemCount() {
+            return itemsList.size();
+        }
+	
+	//Recycler ViewHolder
+	public class SampleViewHolder extends RecyclerView.ViewHolder{
+    		TextView tv;
+            	public SampleViewHolder(View itemView) {
+                	super(itemView);
+                	tv = itemView.findViewById(R.id.grid_text);
+            }
+        }
+    }
+
+
+ ```
+- We can now intialize the adapter in our Fragment/Activity class and pass the data we want to display to it. Please note that PersistantRecyclerAdapter currently supports two **LayoutManager** and they're listed below:
 
 * LinearLayoutManager
 ```java
@@ -128,7 +130,7 @@ GridLayoutManager gridLayout = a.getGridLayoutManager(getActivity(), 3);
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
-**StaggeredLayoutManager** would be added in the future. 
+**StaggeredGridLayoutManager** will be added in future updates. 
 
 ## Contributions
 
