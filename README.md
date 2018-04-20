@@ -141,8 +141,7 @@ StaggeredGridLayoutManager mStaggeredGridLayoutManager = a.getGridLayoutManager(
  ```
  ##### Hint
 **Add this `tools:replace="android:theme"`to your Manifest to prevent your build from failing while implemeting the library**
-```
-java
+```xml
 <application
   tools:replace="android:theme"
   .../>
