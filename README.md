@@ -139,7 +139,7 @@ StaggeredGridLayoutManager mStaggeredGridLayoutManager = a.getGridLayoutManager(
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
- ##### Hint
+ ###### Hint:
 **Add this `tools:replace="android:theme"`to your Manifest to prevent your build from failing while implemeting the library**
 ```xml
 <application
