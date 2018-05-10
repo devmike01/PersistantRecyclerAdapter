@@ -4,13 +4,7 @@
 
     <application
         android:theme="@style/Theme.AppCompat.Light">
-        <activity android:name="com.jadebyte.devmike.persistantrecycleradapter.sample.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    
     </application>
 
 </manifest>
