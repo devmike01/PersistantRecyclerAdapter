@@ -20,7 +20,7 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
     private List<T> list;
     private PersistentRecyclerAdapter recyclerView;
 
-    public void setData(Parcelable[] data) {
+    private void setData(Parcelable[] data) {
         this.data = data;
     }
 
@@ -28,9 +28,23 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
         return data;
     }
 
+    public PersistentRecyclerAdapter() {
+    }
 
-    protected PersistentRecyclerAdapter(List<T> parcelableList) {
+    public PersistentRecyclerAdapter(@NonNull List<T> parcelableList) {
         this.list = parcelableList;
+    }
+
+    /**
+     *
+     * @param dataList
+     */
+    public void setList(@NonNull List<T> dataList){
+        this.list = dataList;
+    }
+
+    public void setList(@NonNull ArrayList<T> dataList){
+        this.list = dataList;
     }
 
 
@@ -51,12 +65,20 @@ public abstract class PersistentRecyclerAdapter<T extends Parcelable, VH extends
         }
     };
 
+    @Override
+    public int getItemCount(){
+        return list ==null?0: list.size();
+    }
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        T data = list.get(position);
-        setData(list.toArray(new Parcelable[]{}));
-        onBindViewHolder(holder, position, data);
+        try {
+            T data = list.get(position);
+            setData(list.toArray(new Parcelable[]{}));
+            onBindViewHolder(holder, position, data);
+        }catch (NullPointerException npe){
+            npe.printStackTrace();
+        }
     }
 
     @Override
