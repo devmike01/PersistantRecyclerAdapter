@@ -139,14 +139,6 @@ StaggeredGridLayoutManager mStaggeredGridLayoutManager = a.getGridLayoutManager(
  gridView.setHasFixedSize(true);
  gridView.setAdapter(a);
  ```
- ###### Hint:
-**Add this `tools:replace="android:theme"`to your Manifest to prevent your build from failing while implemeting the library**
-```xml
-<application
-  tools:replace="android:theme"
-  .../>
-```
-
 ## Contributions
 
 If you would like to contribute to PersistantRecyclerAdapter for Android, clone the repository and just make a pull request.
