@@ -23,7 +23,7 @@ allprojects {
 
 ```groovy
 dependencies {
-        implementation 'implementation 'com.github.devmike01:PersistantRecyclerAdapter:0.1.0'
+        implementation 'com.github.devmike01:PersistantRecyclerAdapter:0.1.0'
 }
 ``` 
    
